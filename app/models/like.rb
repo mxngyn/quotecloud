@@ -13,4 +13,9 @@ class Like < ActiveRecord::Base
     quote.content
   end
 
+  def liker_name
+    liker = User.find(self.liker_id)
+    liker.name
+  end
+
 end
