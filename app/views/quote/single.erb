@@ -1,0 +1,12 @@
+<div class="single-quote">
+  <%= @quote.content %><br />
+  <%= @quote.author %><br />
+  <%= @quote.created_at %><br />
+  <%= @quote.likers.count %> people liked this quote.<br />
+  Likers: <br />
+  <ul>
+    <% @quote.likers.each do |liker| %>
+      <li><a href="/user/<%= liker.liker_id %>"><%= liker.liker_name %></a></li>
+    <% end %>
+  </ul>
+</div>

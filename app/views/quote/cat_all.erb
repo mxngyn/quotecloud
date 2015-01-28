@@ -1,0 +1,11 @@
+<div class="category-quotes">
+  <% @category.quotes.each do |quote| %>
+    <a href="/quote/<%= quote.id %>"><%= quote.content %></a>
+    <%= quote.author %>
+    <form action="/likes" method="POST">
+      <input type="hidden" name="like[quote_id]" value="<%= quote.id %>">
+      <input type="submit" value="Like ♥" class="like-button">
+    </form>
+  <% end %>
+
+</div>

@@ -1,0 +1,15 @@
+<div class="new-quote">
+  <form action="/quote/new" method="POST">
+    <input type="hidden" name="quote[submitter_id]" value="<%= current_user.id %>">
+    Category: <select name="quote[category_id]">
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.title %></option>
+      <% end %>
+    </select><br />
+    Quote:<br />
+    <textarea name="quote[content]"></textarea><br />
+    Author: <br />
+    <input type="text" name="quote[author]"><br /><br />
+    <input type="submit" value="Submit">
+  </form>
+</div>
