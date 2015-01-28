@@ -1,0 +1,14 @@
+<div class="delete-quote">
+  The quote you want to delete is:
+  <div class="quote-content">
+    <%= @quote.content %>
+  </div>
+  <div class="quote-author">
+    <%= @quote.author %>
+  </div>
+  Are you sure? This action cannot be undone.
+  <form action="/submitted/delete/<%= @quote.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Forever">
+  </form>
+</div>

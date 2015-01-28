@@ -1,0 +1,13 @@
+<div class="likes">
+  <% @likes.each do |like| %>
+    <div class="liked_quote">
+      <%= like.quote_content %>
+      <%= like.quote_author %>
+      <form action="/likes/delete/<%= like.id %>" method="POST" class="like-form">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Remove">
+      </form>
+    </div>
+  <% end %>
+
+</div>

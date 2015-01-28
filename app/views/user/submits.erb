@@ -1,0 +1,7 @@
+<div class="submitted">
+  <% @submitted.each do |submit| %>
+    <%= submit.content %>
+    <%= submit.author %>
+    <a href="submitted/delete/<%= submit.id%>">Delete</a>
+  <% end %>
+</div>
