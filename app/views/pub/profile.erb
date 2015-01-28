@@ -1,0 +1,13 @@
+<div class="user-profile">
+  Name: <%= @user.name %><br />
+  Submits: <br />
+  <% @user.submitted_quotes.each do |submit| %>
+    <a href="/quote/<%= submit.id %>"><%= submit.content %></a>
+    <%= submit.author %>
+  <% end %>
+  Likes: <br />
+  <% @user.liked_quotes.each do |like| %>
+    <a href="/quote/<%= like.quote_id %>"><%= like.quote_content %></a>
+    <%= like.quote_author %>
+  <% end %>
+</div>
