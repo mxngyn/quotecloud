@@ -2,7 +2,7 @@ class Like < ActiveRecord::Base
   # Remember to create a migration!
   belongs_to :liker, class_name: "User"
   belongs_to :quotes
-  has_many :liked_quotes, class_name: "Quote", foreign_key: :liked_id
+  has_many :liked_quotes, class_name: "Quote"
 
   def quote_author
     quote = Quote.find(self.quote_id)
