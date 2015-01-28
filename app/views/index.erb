@@ -1,0 +1,22 @@
+<div class="welcome">
+  <div class="hello">
+    “QUOTE CLOUD”
+  </div>
+  <div class="welcome-quote">
+    <div class="welcome-quote-content">
+      “<%= @quote.content %>”
+    </div>
+    <div class="welcome-quote-author">
+      - <em><%= @quote.author %></em> | <a href="/quote/<%= @quote.id%>">link</a>
+    </div>
+  </div>
+  <% if current_user %>
+  <br /><br />
+  Go to your <a href="/home">Dashboard</a>
+  <% else %>
+  <a href="/signup" class="sign-up-link">Sign up</a>
+  <div class="sign-up-form">
+    <%= erb :'/auth/signup' %>
+  </div>
+  <% end %>
+</div>
