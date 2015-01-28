@@ -1,7 +1,5 @@
 get '/' do
-  if current_user
-    erb :home
-  end
+  @quote = Quote.all.sample
   erb :index
 end
 
