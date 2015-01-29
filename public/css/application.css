@@ -10,6 +10,23 @@ a {
     color: #FFFFFF;
 }
 
+a:hover {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+
+a.button-link {
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+}
+
+a.link-button-link {
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    margin-left: 3px;
+    font-size: 0.65em;
+}
+
 #spinner {
     display: none;
     position: absolute;
@@ -17,7 +34,7 @@ a {
     left: 50%;
 }
 
-.welcome {
+.container {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -28,6 +45,7 @@ a {
     top: 150px;
     border: 1px solid #FFFFFF;
     padding: 20px;
+    margin-bottom: 30px;
 }
 
 .hello {
@@ -48,6 +66,7 @@ a {
 
 .welcome-quote-author {
     text-align: right;
+    margin-top: 10px;
 }
 
 .sign-up-form {
@@ -68,8 +87,174 @@ a {
     margin: 0 auto;
 }
 
-#login-toolbar {
-    float: right;
+header {
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 10px;
     padding-top: 5px;
     padding-right: 10px;
+    padding-left: 10px;
+}
+
+#qc {
+    float: left;
+}
+
+#login-toolbar {
+    float: right;
+}
+
+.login {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login input {
+    width: 50%;
+    clear: both;
+}
+
+
+input[type="text"] {
+    color: #9CBFD5;
+}
+
+input[type="password"] {
+    color: #9CBFD5;
+}
+
+textarea {
+    color: #9CBFD5;
+}
+
+
+input[type="submit"]{
+
+    background: none;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px;
+    font-size: .75em;
+}
+
+.navbar {
+    margin-top: -10px
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.liked-quote {
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 7px;
+    border-bottom: 1px dotted #FFFFFF;
+}
+
+.quote-content {
+    padding-top: 15px;
+    font-size: 1.500em;
+}
+
+.quote-author {
+    text-align: right;
+    margin-top: 10px;
+}
+
+form.like-form {
+    display: inline;
+}
+
+.all-quotes {
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 7px;
+    border-bottom: 1px dotted #FFFFFF;
+}
+
+.categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.categories li {
+    padding-bottom: 30px;
+}
+
+.category-quotes {
+    width: 500px;
+    margin: 0 auto;
+    padding-bottom: 7px;
+    border-bottom: 1px dotted #FFFFFF;
+}
+
+.submitted {
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #FFFFFF;
+}
+
+.delete-quote {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.single-quote {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.user-profile {
+    text-align: left;
+    width: 400px;
+}
+
+.profile-div {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.purtify {
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.prof-quote-content {
+    padding-top: 15px;
+    font-size: 1.500em;
+}
+
+.prof-quote-author {
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #FFFFFF;
+}
+
+.quote-liked-by ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.quote-liked-by li {
+    padding-bottom: 30px;
 }
