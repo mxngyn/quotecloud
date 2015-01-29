@@ -1,7 +1,16 @@
+<% if current_user %>
+
+<%= erb :'/user/nav' %>
+
 <div class="categories">
+  <h1>Categories</h1>
   <ul>
     <% @categories.each do |category| %>
-      <li><a href="/quote/category/<%= category.id %>"><%= category.title %></a></li>
+      <li><a href="/quote/category/<%= category.id %>"class="button-link"><%= category.title %></a></li>
     <% end %>
   </ul>
 </div>
+
+<% else %>
+<% redirect "/" %>
+<% end %>
