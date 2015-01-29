@@ -6,7 +6,7 @@ end
 post '/quote/new' do
   quote = Quote.new(params[:quote])
   if quote.save
-    "Success"
+    redirect "/submitted"
   else
     parse_ar_errors_for_display!(quote.errors.messages)
     redirect "/quote/new"
