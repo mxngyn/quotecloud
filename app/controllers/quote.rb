@@ -14,7 +14,7 @@ post '/quote/new' do
 end
 
 get '/quote/all' do
-  @quotes = Quote.all
+  @quotes = Quote.all.shuffle
   erb :'/quote/all'
 end
 
