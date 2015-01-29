@@ -1,7 +1,18 @@
-<div class="submitted">
+<% if current_user %>
+
+<%= erb :'/user/nav' %>
+
   <% @submitted.each do |submit| %>
-    <%= submit.content %>
-    <%= submit.author %>
-    <a href="submitted/delete/<%= submit.id%>">Delete</a>
+    <div class="submitted">
+      <div class="quote-content">
+        “<%= submit.content %>”
+      </div>
+      <div class="quote-author">
+        - <em><%= submit.author %></em> <a href="/quote/<%= submit.id %>" class="link-button-link">link</a>
+      </div>
+      <a href="submitted/delete/<%= submit.id%>" class="button-link">Delete</a>
+  </div>
   <% end %>
-</div>
+  <% else %>
+<% redirect "/" %>
+<% end %>
