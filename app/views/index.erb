@@ -7,7 +7,7 @@
       “<%= @quote.content %>”
     </div>
     <div class="welcome-quote-author">
-      - <em><%= @quote.author %></em> <a href="/quote/<%= @quote.id%>" class="link-button-link">link</a>
+      - <em><%= @quote.author %></em> <% if current_user %><a href="/quote/<%= @quote.id%>" class="link-button-link">link</a><% end %>
     </div>
   </div>
   <% if current_user %>
