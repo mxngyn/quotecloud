@@ -6,7 +6,7 @@ end
 post '/likes' do
   current_user.liked_quotes.where(quote_id: params[:like][:quote_id]).first_or_create {|liked_quote|}
   if request.xhr?
-    "Quote has been added to your likes list."
+    "This quote has been added to your likes."
   else
     redirect "/likes"
   end
