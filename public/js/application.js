@@ -33,7 +33,7 @@ $(document).ready(function() {
     }).done(function(response){
       $spinner.hide();
       $target.closest('.likes').prepend(response);
-      $target.closest('.liked_quote').remove();
+      $target.closest('.liked-quote').remove();
     })
   })
 
@@ -58,6 +58,28 @@ $(document).ready(function() {
 
   $(".sign-up-link").on("click", function(event) {
     event.preventDefault();
+    $(event.target).hide();
     $(".sign-up-form").show();
   })
+
+
+  var $catQuotes = $('.category-quotes');
+
+  $catQuotes.on('submit', 'form.like-form', function(event) {
+    event.preventDefault();
+    $spinner.show();
+
+    var $target = $(event.target);
+    $target.hide();
+
+    $.ajax({
+      type: 'POST',
+      url: $target.attr('action'),
+      data: $target.serialize()
+    }).done(function(response){
+      $spinner.hide();
+      $target.closest('.like-link').append(response);
+    })
+  })
+
 });
