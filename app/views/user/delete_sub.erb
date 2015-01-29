@@ -1,14 +1,23 @@
+<% if current_user %>
+
+<%= erb :'/user/nav' %>
+<br />
+<% if current_user.may_delete?(@quote) %>
 <div class="delete-quote">
   The quote you want to delete is:
   <div class="quote-content">
-    <%= @quote.content %>
+    “<%= @quote.content %>”
   </div>
   <div class="quote-author">
-    <%= @quote.author %>
+    - <em><%= @quote.author %></em>
   </div>
-  Are you sure? This action cannot be undone.
+  Are you sure? This action cannot be undone.<br /><br />
   <form action="/submitted/delete/<%= @quote.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete Forever">
   </form>
 </div>
+<% end %>
+<% else %>
+<% redirect "/" %>
+<% end %>
