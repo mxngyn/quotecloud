@@ -1,11 +1,23 @@
-<div class="category-quotes">
+<% if current_user %>
+
+<%= erb :'/user/nav' %>
   <% @category.quotes.each do |quote| %>
-    <a href="/quote/<%= quote.id %>"><%= quote.content %></a>
-    <%= quote.author %>
-    <form action="/likes" method="POST">
+  <div class="category-quotes">
+  <div class="quote-content">
+    “<%= quote.content %>”
+  </div>
+  <div class="quote-author">
+    - <em><%= quote.author %></em> <a href="/quote/<%= quote.id %>" class="link-button-link">link</a>
+  </div>
+  <div class="like-link">
+    <form action="/likes" method="POST" class="like-form">
       <input type="hidden" name="like[quote_id]" value="<%= quote.id %>">
       <input type="submit" value="Like ♥" class="like-button">
     </form>
+  </div>
+    </div>
   <% end %>
 
-</div>
+<% else %>
+<% redirect "/" %>
+<% end %>
