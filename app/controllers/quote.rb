@@ -8,7 +8,8 @@ post '/quote/new' do
   if quote.save
     "Success"
   else
-    "Failed"
+    parse_ar_errors_for_display!(quote.errors.messages)
+    redirect "/quote/new"
   end
 end
 

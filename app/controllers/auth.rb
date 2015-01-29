@@ -10,13 +10,12 @@ end
 post '/login' do
   user = User.find_by(email: params[:user][:email])
   user.try(:authenticate, params[:user][:password])
-  session[:user_id] = user.id
-
-  if request.xhr?
-    erb :'auth/home'
-  else
-    set_error('Login Failed, Please Try Again')
+  if user
+    session[:user_id] = user.id
     redirect "/"
+  else
+    add_error!("Login failed.")
+    erb :'/auth/login'
   end
 end
 
@@ -25,13 +24,12 @@ get '/signup' do
 end
 
 post '/signup' do
-  p session[:error]
   user = User.new(params[:user])
   if user.save
     session[:user_id] = user.id
     erb :'home'
   else
-    present_errors(user.errors.messages)
+    parse_ar_errors_for_display!(user.errors.messages)
     redirect "/signup"
   end
 end
