@@ -26,10 +26,6 @@ delete "/submitted/delete/:id" do |id|
   Quote.find(id).destroy
   likes = Like.where(quote_id: id)
   likes.each {|like| like.destroy}
-  users = User.all
-  users.each do |user|
-    user.liked_quotes.find_by(quote_id: id).destroy
-  end
   redirect "/submitted"
 end
 
