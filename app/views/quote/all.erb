@@ -1,13 +1,14 @@
-<div class="all-quotes">
+<% if current_user %>
+
+<%= erb :'/user/nav' %>
+
   <% @quotes.each do |quote| %>
+  <div class="all-quotes">
     <div class="quote-content">
-      <%= quote.content %>
+      “<%= quote.content %>”
     </div>
     <div class="quote-author">
-      <%= quote.author %>
-    </div>
-    <div class="quote-link">
-      <a href="/quote/<%= quote.id %>">link</a>
+      - <em><%= quote.author %></em> <a href="/quote/<%= quote.id %>" class="link-button-link">link</a>
     </div>
     <div class="like-link">
       <form action="/likes" method="POST" class="like-form">
