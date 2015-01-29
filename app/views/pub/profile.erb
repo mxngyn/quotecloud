@@ -1,13 +1,36 @@
+<% if current_user %>
+
+<%= erb :'/user/nav' %>
+<br /><br />
 <div class="user-profile">
-  Name: <%= @user.name %><br />
-  Submits: <br />
+  <span class="purtify">Name</span>
+  <%= @user.name %>
+  <br /><br />
+  <span class="purtify">Account Created</span>
+  <%= minutes_in_words(@user.created_at) %> ago
+  <br /><br /><br />
+</div>
+<div class="profile-div">
+  <span class="purtify">Submits</span> <br />
   <% @user.submitted_quotes.each do |submit| %>
-    <a href="/quote/<%= submit.id %>"><%= submit.content %></a>
-    <%= submit.author %>
+    <div class="prof-quote-content">
+     “<%= submit.content %>”
+    </div>
+    <div class="prof-quote-author">
+    - <em><%= submit.author %></em> <a href="/quote/<%= submit.id %>" class="link-button-link">link</a>
+    </div>
   <% end %>
-  Likes: <br />
+  <span class="purtify">Likes</span> <br /><br />
   <% @user.liked_quotes.each do |like| %>
-    <a href="/quote/<%= like.quote_id %>"><%= like.quote_content %></a>
-    <%= like.quote_author %>
+  <div class="prof-quote-content">
+    “<%= like.quote_content %>”
+  </div>
+  <div class="prof-quote-author">
+    - <em><%= like.quote_author %></em> <a href="/quote/<%= like.quote_id %>" class="link-button-link">link</a>
+  </div>
   <% end %>
 </div>
+
+<% else %>
+<% redirect "/" %>
+<% end %>
