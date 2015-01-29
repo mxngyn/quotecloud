@@ -1,12 +1,31 @@
+<% if current_user %>
+
+<%= erb :'/user/nav' %>
+<br />
 <div class="single-quote">
-  <%= @quote.content %><br />
-  <%= @quote.author %><br />
-  <%= @quote.created_at %><br />
-  <%= @quote.likers.count %> people liked this quote.<br />
-  Likers: <br />
+  <div class="quote-content">
+    “<%= @quote.content %>”
+  </div>
+  <div class="quote-author">
+    - <em><%= @quote.author %></em>
+  </div>
+  <span class="purtify">Created</span> <%= minutes_in_words(@quote.created_at) %> ago<br /><br />
+  <% if @quote.likers.count == 1 %>
+  <span class="purtify"><%= @quote.likers.count %> person</span> liked this quote.
+  <% else %>
+  <span class="purtify"><%= @quote.likers.count %> people</span> liked this quote.
+<% end %>
+  <br /><br /><br />
+  <span class="purtify">Liked by</span><br /> <br />
+  <div class="quote-liked-by">
   <ul>
     <% @quote.likers.each do |liker| %>
       <li><a href="/user/<%= liker.liker_id %>"><%= liker.liker_name %></a></li>
     <% end %>
   </ul>
+  </div>
 </div>
+
+<% else %>
+<% redirect "/" %>
+<% end %>
