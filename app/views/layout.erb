@@ -22,15 +22,19 @@
 <body>
 <div id="content">
   <header>
+    <div id="qc"><a href="/" class="button-link">QUOTE CL☁UD</a></div>
     <div id="login-toolbar">
       <% if current_user %>
-        Hello <%= current_user.name %>! | <a href="/logout">Logout</a>
+        Hello <a href="/home"><%= current_user.name.capitalize %></a>! <a href="/logout" class="button-link">LOGOUT</a>
       <% else %>
-        <a href="/login">Login</a>
+        <a href="/login" class="button-link">LOGIN</a>
       <% end %>
   </header>
   <div id="spinner"><img src="/img/ajax-loader.gif"></div>
-  <%= yield %>
+  <div class="container">
+    <em><%= display_errors! %></em>
+    <%= yield %>
+  </div>
 </div>
 </body>
 </html>
