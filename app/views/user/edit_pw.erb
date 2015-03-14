@@ -1,0 +1,13 @@
+<% if current_user %>
+<%= erb :'/user/nav' %>
+<div class="edit-profile">
+<form action="/edit_pw" method="POST" class="edit-pw">
+<input type="hidden" name="_method" value="PUT">
+Password: <br />
+<input type="password" name="user[password]" value=""><br />
+Confirm Password: <br />
+<input type="password" name="user[password_confirmation]" value=""><br />
+<input type="submit" value="update">
+</form>
+</div>
+<% end %>
