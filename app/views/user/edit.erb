@@ -1,5 +1,5 @@
 <% if current_user %>
-
+<%= erb :'/user/nav' %>
 <div class="edit-profile">
   <form action="/edit" method="POST" class="edit-form">
     <input type="hidden" name="_method" value="PUT">
