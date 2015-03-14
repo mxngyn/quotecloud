@@ -2,6 +2,9 @@
 
 <%= erb :'/user/nav' %>
 <div class="likes">
+  <% if @likes.length == 0 %>
+  You have not liked any quotes yet.
+  <% else %>
   <% @likes.each do |like| %>
     <div class="liked-quote">
       <div class="quote-content">
