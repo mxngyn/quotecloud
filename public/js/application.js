@@ -1,8 +1,11 @@
 $(document).ready(function() {
 
   var $spinner = $('#spinner');
-
   var $editProfile = $('.edit-profile');
+  var $editPw = $('.edit-pw');
+  var $likeQuotes = $('.likes');
+  var $allQuotes = $('.all-quotes');
+  var $catQuotes = $('.category-quotes');
 
   $editProfile.on('submit', 'form.edit-form', function(event) {
     event.preventDefault();
@@ -20,7 +23,23 @@ $(document).ready(function() {
     })
   })
 
-  var $likeQuotes = $('.likes');
+  $editPw.on('submit', 'form.edit-pw', function(event) {
+    event.preventDefault();
+    $spinner.show();
+
+    var $target = $(event.target);
+    $.ajax ({
+      type: 'PUT',
+      url: $target.attr('action'),
+      data: $target.serialize()
+    }).done(function(response){
+      $spinner.hide();
+      $target.closest('form').append(response);
+      window.location.href="/edit_pw";
+    })
+  })
+
+
 
   $likeQuotes.on('submit', 'form.like-form', function(event) {
     event.preventDefault();
@@ -37,7 +56,6 @@ $(document).ready(function() {
     })
   })
 
-  var $allQuotes = $('.all-quotes');
 
   $allQuotes.on('submit', 'form.like-form', function(event) {
     event.preventDefault();
@@ -63,7 +81,6 @@ $(document).ready(function() {
   })
 
 
-  var $catQuotes = $('.category-quotes');
 
   $catQuotes.on('submit', 'form.like-form', function(event) {
     event.preventDefault();
