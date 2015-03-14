@@ -1,7 +1,9 @@
 <% if current_user %>
 
 <%= erb :'/user/nav' %>
-
+  <% if @submitted.length == 0 %>
+  You have not submitted any quotes yet.
+  <% else %>
   <% @submitted.each do |submit| %>
     <div class="submitted">
       <div class="quote-content">
