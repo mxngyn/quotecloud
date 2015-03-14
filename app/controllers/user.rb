@@ -52,3 +52,23 @@ put "/edit" do
     redirect "/edit"
   end
 end
+
+get "/edit_pw" do
+  @user = User.find(session[:user_id])
+  erb :'/user/edit_pw'
+end
+
+put "/edit_pw" do
+  if request.xhr?
+    if params[:user][:password] == ""
+      erb :'/user/edit_pw', layout: false
+      "Password cannot be blank."
+    else
+      current_user.update(params[:user])
+      erb :'/user/edit_pw', layout: false
+      "Update successful."
+    end
+  else
+    redirect "/edit_pw"
+  end
+end
