@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :email, format: {with: /[a-zA-Z]*[1-9]*@[a-z]*.[a-z]{3}/}
   validates :email, :presence => {:message => "Please provide email"}
   validates :email, :uniqueness => {:message => "Sorry, that email is already taken"}
+  validates :password_digest, :presence => {:message => "Password cannot be blank."}
 
 
   def may_delete?(quote)
