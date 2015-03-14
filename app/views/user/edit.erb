@@ -7,14 +7,9 @@
     <input type="text" name="user[name]" value="<%= current_user.name %>"><br />
     Email: <br />
     <input type="text" name="user[email]" value="<%= current_user.email %>"><br />
-    Password: <br />
-    <input type="password" name="user[password]"><br />
-    Confirm Password: <br />
-    <input type="password" name="user[password_confirmation]"><br />
     <input type="submit" value="update">
   </form>
+<p><a href="/edit_pw" class="button-link">Change Password</a></p>
 </div>
 
-<% else %>
-<% redirect "/" %>
 <% end %>
