@@ -11,6 +11,7 @@
   <br /><br /><br />
 </div>
 <div class="profile-div">
+  <p>
   <span class="purtify">Submits</span> <br />
   <% @user.submitted_quotes.each do |submit| %>
     <div class="prof-quote-content">
@@ -20,6 +21,8 @@
     - <em><%= submit.author %></em> <a href="/quote/<%= submit.id %>" class="link-button-link">link</a>
     </div>
   <% end %>
+</p>
+<p>
   <span class="purtify">Likes</span> <br /><br />
   <% @user.liked_quotes.each do |like| %>
   <div class="prof-quote-content">
@@ -29,8 +32,6 @@
     - <em><%= like.quote_author %></em> <a href="/quote/<%= like.quote_id %>" class="link-button-link">link</a>
   </div>
   <% end %>
+</p>
 </div>
-
-<% else %>
-<% redirect "/" %>
 <% end %>
