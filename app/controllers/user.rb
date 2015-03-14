@@ -39,6 +39,7 @@ delete "/likes/delete/:id" do |id|
 end
 
 get "/edit" do
+  @user = User.find(session[:user_id])
   erb :'/user/edit'
 end
 
