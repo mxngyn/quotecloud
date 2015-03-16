@@ -1,8 +1,12 @@
 # quotecloud
 
+purpose
+
+tools
+
 Store all of your favorite quotes and browse others' favorite quotes.
 
-To view: 
+To view:
 
 - Clone to your local machine
 - In the command line: `bundle install`

@@ -14,9 +14,14 @@ gem 'bcrypt-ruby'
 
 gem 'rake'
 
+# install a more concurrent webserver optional change procfile to use puma instead of shotgun or rackup if you like.
+gem 'puma'
 gem 'shotgun'
 
+group :development do
 gem 'pry'
+
+end
 
 group :test do
   gem 'shoulda-matchers'
