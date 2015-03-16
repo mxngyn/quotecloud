@@ -19,7 +19,6 @@ gem 'puma'
 gem 'shotgun'
 
 group :development do
-gem 'pry'
 
 end
 
