@@ -1,3 +1,7 @@
+after do
+ActiveRecord::Base.connection.close
+end
+
 get '/likes' do
   @likes = current_user.liked_quotes
   erb :'/user/likes'

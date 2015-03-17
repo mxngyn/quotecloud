@@ -1,3 +1,7 @@
+after do
+ActiveRecord::Base.connection.close
+end
+
 get '/quote/new' do
   @categories = Category.all
   erb :'/quote/new'
