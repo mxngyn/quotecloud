@@ -1,0 +1,9 @@
+require 'irb'
+require 'irb/completion'
+
+require 'rubygems'
+require 'bundler/setup'
+
+ENV['DATABASE_URL']
+
+IRB.start
